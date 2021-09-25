@@ -2,6 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Arif Burak Demiray</Authors>
+    <Description>A simple pagination library for .NET</Description>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageReleaseNotes>This is the first release, any recommendations, warnings or requests are welcomed.</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/arifBurakDemiray/Demiray.Core.Pagination</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/arifBurakDemiray/Demiray.Core.Pagination</PackageProjectUrl>
+    <Copyright>Arif Burak Demiray</Copyright>
+    <RepositoryType>public</RepositoryType>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
