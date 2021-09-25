@@ -12,6 +12,7 @@
     <Copyright>Arif Burak Demiray</Copyright>
     <RepositoryType>public</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
