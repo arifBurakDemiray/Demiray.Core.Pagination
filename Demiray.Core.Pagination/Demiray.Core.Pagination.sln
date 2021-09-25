@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demiray.Core.Pagination", "Demiray.Core.Pagination.csproj", "{5301149A-C228-467F-B546-0193DBD79622}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5301149A-C228-467F-B546-0193DBD79622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5301149A-C228-467F-B546-0193DBD79622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5301149A-C228-467F-B546-0193DBD79622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5301149A-C228-467F-B546-0193DBD79622}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C48AD4D9-3233-4AD4-B60F-A9F39E3A92C7}
+	EndGlobalSection
+EndGlobal
