@@ -10,7 +10,7 @@ jobs:
   build:
     name: Production
     env:
-      APIKEY: ${{secrets.API_KEY}}
+      APIKEY: ${{secrets.API_KEY_NUGET}}
     runs-on: ubuntu-latest
 
     steps:
