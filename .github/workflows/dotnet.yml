@@ -17,9 +17,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: Open Project Directory
-      run: cd Demiray.Core.Pagination
     - name: Pack
-      run: dotnet pack --configuration Release
+      run: dotnet pack ./Demiray.Core.Pagination/Demiray.Core.Pagination.csproj --configuration Release
     - name: Publish
-      run: dotnet nuget push "bin/Release/Demiray.Core.Pagination.1.0.0.nupkg"  --api-key oy2co7gjpykblinihsbabmytoa5d3lbe5dq3df5tprjnwi --source "github"
+      run: dotnet nuget push "bin/Release/Demiray.Core.Pagination.1.0.0.nupkg"  --api-key ${{ secrets.API_KEY }} --source "github"
