@@ -1,0 +1,23 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Pack
+      run: dotnet pack --configuration Release
+    - name: Publish
+      run: dotnet nuget push "bin/Release/Demiray.Core.Pagination.1.0.0.nupkg"  --api-key oy2co7gjpykblinihsbabmytoa5d3lbe5dq3df5tprjnwi --source "github"
