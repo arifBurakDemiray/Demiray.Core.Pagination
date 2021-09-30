@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Demiray.Core.Pagination.Enum;
+using Demiray.Core.Pagination.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,9 +15,10 @@ namespace SmartSchoolBus.Helper.Pagination
         {
             this.Entity = Entity;
         }
-
+#nullable enable
         public ICollection<T> Pagitate(Pageable? pageable)
         {
+#nullable disable
             if (!CheckPagilability(pageable))
             {
                 return Entity.ToList();
@@ -25,21 +28,23 @@ namespace SmartSchoolBus.Helper.Pagination
 
             return Pagitate(Entity, pageable, totalCount);
         }
-
-        public ICollection<T> Pagitate(IQueryable<T> Query, Pageable? pageable)
+#nullable enable
+        public ICollection<T> Pagitate(Pageable? pageable, IQueryable<T> query)
         {
+#nullable disable
             if (!CheckPagilability(pageable))
             {
-                return Query.ToList();
+                return query.ToList();
             }
 
-            var totalCount = Query.Count();
+            var totalCount = query.Count();
 
-            return Pagitate(Query, pageable, totalCount);
+            return Pagitate(query, pageable, totalCount);
         }
-
-        public ICollection<T> Pagitate(Expression<Func<T, bool>> where, Pageable? pageable)
+#nullable enable
+        public ICollection<T> Pagitate(Pageable? pageable, Expression<Func<T, bool>> where)
         {
+#nullable disable
             var restrictions = Entity.
                 Where(where);
 
@@ -52,12 +57,29 @@ namespace SmartSchoolBus.Helper.Pagination
 
             return Pagitate(restrictions, pageable, totalCount);
         }
-
-        public ICollection<T> Pagitate<TKey>(Expression<Func<T, bool>> where, Pageable? pageable, Expression<Func<T, TKey>> orderby)
+#nullable enable
+        public ICollection<T> Pagitate<TKey>(Pageable? pageable, Expression<Func<T, bool>> where, Expression<Func<T, TKey>> orderby, EOrder order)
         {
+#nullable disable
             var restrictions = Entity.
                 Where(where).
-                OrderBy(orderby);
+                OrderByDirection(orderby,order);
+
+            if (!CheckPagilability(pageable))
+            {
+                return restrictions.ToList();
+            }
+
+            var totalCount = restrictions.Count();
+
+            return Pagitate(restrictions, pageable, totalCount);
+        }
+#nullable enable
+        public ICollection<T> Pagitate<TKey>(Pageable? pageable, Expression<Func<T, TKey>> orderby, EOrder order)
+        {
+#nullable disable
+            var restrictions = Entity.
+                OrderByDirection(orderby,order);
 
             if (!CheckPagilability(pageable))
             {
@@ -69,18 +91,17 @@ namespace SmartSchoolBus.Helper.Pagination
             return Pagitate(restrictions, pageable, totalCount);
         }
 
-
         private PagedList<T> Pagitate(IQueryable<T> Query, Pageable pageable, int TotalCount)
         {
             return Query.
-                Skip((int)((pageable.PageNumber - 1) * pageable.PageSize)).
+                Skip((int)(pageable.PageNumber * pageable.PageSize)).
                 Take((int)pageable.PageSize).
                 ToPagedList(pageable, TotalCount);
         }
 
         private bool CheckPagilability(Pageable? pageable)
         {
-            return pageable == null ? false : pageable.PageNumber != null && pageable.PageSize != null && pageable.PageNumber>=1;
+            return pageable == null && pageable.PageNumber != null && pageable.PageSize != null && pageable.PageNumber>=0 && pageable.PageSize>=1;
         }
     }
 }

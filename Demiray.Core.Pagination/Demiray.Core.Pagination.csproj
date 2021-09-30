@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -6,13 +6,20 @@
     <Authors>Arif Burak Demiray</Authors>
     <Description>A simple pagination library for .NET</Description>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageReleaseNotes>This is the first release, any recommendations, warnings or requests are welcomed.</PackageReleaseNotes>
+    <PackageReleaseNotes>- Pageable.Of function created
+- Now Page number starts from 0, page size starts from 1
+- If you have a generic repository class you should extend PageableRepository
+- If you have a generic interface repository class you should extend it in the interface and the implemention generic repo or sub classes
+- Orders of parameters are changed
+- Order enum added to functions that have sort ability
+- New function for only do order operation
+- Two extension method to IQueryable instance</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/arifBurakDemiray/Demiray.Core.Pagination</RepositoryUrl>
     <PackageProjectUrl>https://github.com/arifBurakDemiray/Demiray.Core.Pagination</PackageProjectUrl>
     <Copyright>Arif Burak Demiray</Copyright>
     <RepositoryType>public</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
