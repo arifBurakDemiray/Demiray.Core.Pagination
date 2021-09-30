@@ -23,12 +23,4 @@ namespace SmartSchoolBus.Helper.Pagination
         }
        
     }
-
-    public static class LinqExtension
-    {
-        public static PagedList<T> ToPagedList<T>(this IQueryable<T> Query, Pageable pageable, int TotalCount)
-        {
-            return new PagedList<T>(Query, pageable, TotalCount);
-        }
-    }
 }
