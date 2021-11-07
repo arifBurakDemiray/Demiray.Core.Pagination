@@ -99,9 +99,11 @@ namespace SmartSchoolBus.Helper.Pagination
                 ToPagedList(pageable, TotalCount);
         }
 
+#nullable enable
         private bool CheckPagilability(Pageable? pageable)
         {
-            return pageable == null && pageable.PageNumber != null && pageable.PageSize != null && pageable.PageNumber>=0 && pageable.PageSize>=1;
+#nullable disable
+            return pageable != null && pageable.PageNumber != null && pageable.PageSize != null && pageable.PageNumber>=0 && pageable.PageSize>=1;
         }
     }
 }
