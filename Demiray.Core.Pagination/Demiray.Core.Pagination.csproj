@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>net5.0;netcoreapp3.1;</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Arif Burak Demiray</Authors>
     <Description>A simple pagination library for .NET</Description>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageReleaseNotes>- Null check fixed in check pagilability function</PackageReleaseNotes>
+    <PackageReleaseNotes>- Added support for Net Core 3.1</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/arifBurakDemiray/Demiray.Core.Pagination</RepositoryUrl>
     <PackageProjectUrl>https://github.com/arifBurakDemiray/Demiray.Core.Pagination</PackageProjectUrl>
     <Copyright>Arif Burak Demiray</Copyright>
     <RepositoryType>public</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
