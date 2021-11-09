@@ -8,13 +8,12 @@ namespace SmartSchoolBus.Helper.Pagination
 {
     public interface IPageableRepository<T> 
     {
-#nullable enable
         /// <summary>
         /// This function simply pagitates entity without any restrictions
         /// </summary>
         /// <param name="pageable">Pageable instance coming from client</param>
         /// <returns>Collection of query result</returns>
-        public ICollection<T> Pagitate(Pageable? pageable);
+        ICollection<T> Pagitate(Pageable pageable);
 
         /// <summary>
         /// This function applies Where function on the entity with the param where
@@ -23,7 +22,7 @@ namespace SmartSchoolBus.Helper.Pagination
         /// <param name="pageable">Pageable instance coming from client</param>
         /// <param name="where">Where consumer function of the entity</param>
         /// <returns>Collection of query result</returns>
-        public ICollection<T> Pagitate(Pageable? pageable, Expression<Func<T, bool>> where);
+        ICollection<T> Pagitate(Pageable pageable, Expression<Func<T, bool>> where);
 
         /// <summary>
         /// If this interface does not provide complex LINQ, you can use this function to 
@@ -32,7 +31,7 @@ namespace SmartSchoolBus.Helper.Pagination
         /// <param name="pageable">Pageable instance coming from client</param>
         /// <param name="query">Query of the entity</param>
         /// <returns>Collection of query result</returns>
-        public ICollection<T> Pagitate(Pageable? pageable, IQueryable<T> query);
+        ICollection<T> Pagitate(Pageable pageable, IQueryable<T> query);
 
         /// <summary>
         /// This function applies Where and OrderBy functions to the entity
@@ -43,7 +42,7 @@ namespace SmartSchoolBus.Helper.Pagination
         /// <param name="orderby">OrderBy consumer function of the entity</param>
         /// <param name="order">Order of the OrderBy function</param>
         /// <returns>Collection of query result</returns>
-        public ICollection<T> Pagitate<TKey>(Pageable? pageable, Expression<Func<T, bool>> where, Expression<Func<T, TKey>> orderby, EOrder order);
+        ICollection<T> Pagitate<TKey>(Pageable pageable, Expression<Func<T, bool>> where, Expression<Func<T, TKey>> orderby, EOrder order);
 
         /// <summary>
         /// This function applies OrderBy functions to the entity
@@ -53,8 +52,7 @@ namespace SmartSchoolBus.Helper.Pagination
         /// <param name="orderby">OrderBy consumer function of the entity</param>
         /// <param name="order">Order of the OrderBy function</param>
         /// <returns>Collection of query result</returns>
-        public ICollection<T> Pagitate<TKey>(Pageable? pageable, Expression<Func<T, TKey>> orderby, EOrder order);
-#nullable disable
+        ICollection<T> Pagitate<TKey>(Pageable pageable, Expression<Func<T, TKey>> orderby, EOrder order);
     }
 
 }

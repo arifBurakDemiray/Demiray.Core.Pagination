@@ -1,11 +1,8 @@
 ﻿using Demiray.Core.Pagination.Enum;
 using SmartSchoolBus.Helper.Pagination;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Demiray.Core.Pagination.Util
 {
